@@ -16,16 +16,7 @@ from pathlib import Path
 BASE_DIR = Path(__file__).resolve().parent.parent
 
 
-# Quick-start development settings - unsuitable for production
-# See https://docs.djangoproject.com/en/4.2/howto/deployment/checklist/
 
-# SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = 'django-insecure-a^2w+rd9cv1e#n47k2@7(bt#w(-)v4$6*g!!s8rp3ujoe!qhse'
-
-# SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
-
-ALLOWED_HOSTS = []
 
 
 # Application definition
@@ -76,16 +67,7 @@ WSGI_APPLICATION = 'app.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/4.2/ref/settings/#databases
 
-DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.postgresql',
-        'NAME': 'test_website',
-        'USER': 'postgres',
-        'PASSWORD': 'wanted5969',
-        'HOST': 'localhost',
-        'PORT': '5432',
-    }
-}
+
 
 
 
@@ -136,12 +118,8 @@ EMAIL_USE_TLS = True
 EMAIL_HOST_USER = 'hgrace440@gmail.com'
 EMAIL_HOST_PASSWORD = 'mdhjhjgmfptupwsm'
 
-STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
-STATIC_URL = 'static/'
 
-STATICFILES_DIRS = [
-    os.path.join(BASE_DIR, "blog", "static")
-]
+STATIC_URL = 'static/'
 
 LOGIN_REDIRECT_URL = 'profile'
 LOGIN_URL = 'user'
@@ -154,3 +132,9 @@ MEDIA_ROOT = os.path.join(BASE_DIR, 'pictures')
 # https://docs.djangoproject.com/en/4.2/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
+
+try:
+    from.local_settings import *
+except ImportError:
+    from .prod_settings import *
