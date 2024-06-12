@@ -78,10 +78,21 @@ WSGI_APPLICATION = 'app.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
+        'ENGINE': 'django.db.backends.postgresql',
+        'NAME': 'test_website',
+        'USER': 'postgres',
+        'PASSWORD': 'wanted5969',
+        'HOST': 'localhost',
+        'PORT': '5432',
     }
 }
+
+
+
+
+
+
+
 
 
 # Password validation
@@ -125,11 +136,11 @@ EMAIL_USE_TLS = True
 EMAIL_HOST_USER = 'hgrace440@gmail.com'
 EMAIL_HOST_PASSWORD = 'mdhjhjgmfptupwsm'
 
-
+STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
 STATIC_URL = 'static/'
 
 STATICFILES_DIRS = [
-    os.path.join(BASE_DIR, "static")
+    os.path.join(BASE_DIR, "blog", "static")
 ]
 
 LOGIN_REDIRECT_URL = 'profile'
